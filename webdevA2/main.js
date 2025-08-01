@@ -53,17 +53,26 @@ function AnimateMouseGlow() {
 
 AnimateMouseGlow();
 
-// // enable user inputs & scroll after landing page anim finishes
-// const header = document.querySelector("header");
-// header.classList.add("hidden");
+// enable user inputs & scroll after landing page anim finishes
+if (!localStorage.getItem('landingPlayed')) {
+    // mark that landing anim now been played
+    localStorage.setItem('landingPlayed', 'true');
 
-// document.body.classList.add('disable-scroll');
-// // auto remove blocker
-// setTimeout(() => {
-//     document.body.classList.remove('disable-scroll');
-//     document.querySelector("#input-blocker")?.remove();
-//     header.classList.remove("hidden");
-// }, 11000);
+    const header = document.querySelector("header");
+    header.classList.add("hidden");
+    var inputBlocker = document.createElement("div");
+    inputBlocker.id = "input-blocker";
+
+    document.body.classList.add('disable-scroll');
+    // auto remove blocker
+    setTimeout(() => {
+        document.body.classList.remove('disable-scroll');
+        document.querySelector("#input-blocker");
+        if (blocker) blocker.remove();
+        header.classList.remove("hidden");
+    }, 11000);
+}
+
 
 // target all elements to save to constants
 const topicButtons = [
@@ -99,8 +108,8 @@ function showPage(pgno) {
 
 // Listen for clicks on the buttons, assign anonymous eventhandler functions to call show function
 const dropdownNav = document.querySelector("#dropdown-nav");
-for (let i = 0; i < topicButtons.length; i++) {
-    topicButtons[i].addEventListener("click", () => {
+topicButtons.forEach((button, i) => {
+    button.addEventListener("click", () => {
         showPage(i + 1);
         topicSections[i].scrollIntoView({behavior: "smooth"}); // scroll to corresponding section smoothly
         dropdownNav.classList.remove("open-nav");
@@ -108,7 +117,7 @@ for (let i = 0; i < topicButtons.length; i++) {
         burgerSprite.classList.remove('hidden');
         burgerSprite.classList.remove('active');
     });
-}
+});
 
 hidePages();
 showPage(1);
@@ -125,7 +134,7 @@ fullscreenBtn.addEventListener('click', () => {
         closeFullscreen();
         fullscreenBtn.src = 'images/fullscreen-icon.png';
     }
-})
+});
 // exit fullscreen when 'ESC' is pressed
 document.addEventListener('fullscreenchange', () => {
     if (document.fullscreenElement) {
@@ -383,7 +392,7 @@ closeBtn.addEventListener("click", () => {
     console.log("current rotate: " + currentRotateY);
     console.log("inspecting planet: " + getRotateY(currentInspectedPlanet));
     // remove all hoverpoints
-    currentInspectedPlanet.querySelectorAll(".hoverpoint").forEach(point => {point.remove()});
+    currentInspectedPlanet.querySelectorAll(".hoverpoint").forEach(point => {point.remove();});
     currentInspectedPlanet = null;
 });
 
@@ -578,7 +587,7 @@ function cancelMomentum() {
 
 // animate snapping to nearest planet
 // accounts for perspective, rotateX and rotateY
-function animateSnap(duration, targetY, targetX = -10, targetPerspective = 1000, onComplete) {
+function animateSnap(duration, targetY, targetX = -10, targetPerspective = 1000, onComplete = () => {}) {
     const startTime = performance.now(); // time when animation started
     const startY = currentRotateY;
     const startX = currentRotateX;
@@ -754,7 +763,7 @@ const questions = [
             {text: "Potential disruption of microbial life", correct: "true"}
         ]
     },
-]
+];
 const qnElement = document.querySelector("#question");
 const answerBtns = document.querySelector("#answer-buttons");
 const nextBtn = document.querySelector("#next-btn");
@@ -787,7 +796,7 @@ function showQuestion() {
             button.dataset.correct = answer.correct;
         }
         button.addEventListener("click", selectAnswer);
-    })
+    });
 }
 
 // reset qn
@@ -900,11 +909,11 @@ zones.addEventListener("drop", (e) => {
     if (correctZone === targetZone) {
         correctAudio.play();
         popup.classList.add("open");
-        feedback.textContent = `✅ ${planetName} is correctly placed in the ${targetZone} zone!`
+        feedback.textContent = `✅ ${planetName} is correctly placed in the ${targetZone} zone!`;
 
         // add large image of planet to the zone
         const img = document.createElement("img");
-        img.src = `images/${planetName.toLowerCase()}.png`
+        img.src = `images/${planetName.toLowerCase()}.png`;
         img.alt = planetName;
         img.style.padding = "10px";
 
@@ -931,7 +940,7 @@ zones.addEventListener("drop", (e) => {
 
 closePopupBtn.addEventListener("click", () => {
     popup.classList.remove("open");
-})
+});
 
 function failGame() {
     popup.classList.add("open");
@@ -952,6 +961,7 @@ function winGame() {
 function startGame() {
     closePopupBtn.onclick = "none";
     errorCount = 0;
+    correctCount = 0;
     feedback.textContent = "";
 
     // reset dropzones
@@ -1007,7 +1017,7 @@ function bindDragAndTouchEvents() {
     planetIcons.forEach(icon => {
         icon.setAttribute("draggable", "true"); // make icons draggable
 
-        icon.addEventListener("dragstart", (e) => {
+        icon.addEventListener("dragstart", () => {
             draggedPlanet = icon;
         });
     });

@@ -25,13 +25,13 @@
 @font-face {
     font-family: Mulish;
     src: url('./fonts/Mulish-Light.ttf') format('truetype');
-    font-weight: lighter;
+    font-weight: 300;
     font-style: normal;
 }
 @font-face {
     font-family: Mulish;
     src: url('./fonts/Mulish-LightItalic.ttf') format('truetype');
-    font-weight: lighter;
+    font-weight: 300;
     font-style: italic;
 }
 @font-face {
@@ -114,6 +114,7 @@ h1 {
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
 }
 .half-planet {
     width: 50%;
@@ -129,13 +130,11 @@ h1 {
     animation: slideInLeft 4s ease-in-out forwards;
     filter: brightness(90%) saturate(80%) drop-shadow(0 0 10rem rgb(136, 136, 223));
 }
-
 /*select 2nd img of planet-wrapper*/
 .planet-wrapper img:nth-child(2) {
     animation: slideInRight 4s ease-in-out forwards;
     filter: brightness(90%) saturate(80%) drop-shadow(0 0 10rem crimson);
 }
-
 @keyframes slideInLeft {
     0% {
         transform: translateX(-200%) scale(0.7);
@@ -178,14 +177,8 @@ h1 {
     pointer-events: none;
     z-index: 3;
 }
-.fade-top {
-    top: 0;
-    background-image: linear-gradient(to bottom, black, transparent);
-}
-.fade-bottom {
-    bottom: 0;
-    background-image: linear-gradient(to top, black, transparent);
-}
+.fade-top {top: 0; background-image: linear-gradient(to bottom, black, transparent);}
+.fade-bottom {bottom: 0; background-image: linear-gradient(to top, black, transparent);}
 #input-blocker {
     position: fixed;
     height: 100vh;
@@ -214,12 +207,7 @@ header {
     opacity: 1;
     transition: height 2s ease-in-out;
 }
-.hidden {
-    height: 0;
-    width: 0;
-    opacity: 0;
-    /* pointer-events: none; */
-}
+.hidden {height: 0; width: 0; opacity: 0;}
 .burger {
     position: relative;
     height: 100%;
@@ -253,10 +241,7 @@ header {
 }
 .burger span::before {transform: translate(.375rem, .375rem);}
 .burger span::after {transform: translate(.375rem, -.375rem);}
-.burger:hover span {
-    background-color: rgb(255, 66, 66);
-    transform: translate(-50%);
-}
+.burger:hover span {background-color: rgb(255, 66, 66); transform: translate(-50%);}
 .burger:hover span::before {background-color: rgb(255, 24, 24); transform: translateY(.375rem);}
 .burger:hover span::after {background-color: rgb(255, 24, 24); transform: translateY(-.375rem);}
 button {cursor: pointer;}
@@ -265,9 +250,7 @@ button {cursor: pointer;}
 .burger span.hidden {height: 0;}
 .burger span.active::before {transform: rotate(45deg);}
 .burger span.active::after {transform: rotate(-45deg);}
-#main-logo {
-    width: 100%;
-}
+#main-logo {width: 100%;}
 .logo-container {
     height: 100%;
     width: 3rem;
@@ -291,11 +274,7 @@ button {cursor: pointer;}
     text-align: center;
     color: white;
 }
-.regular-font {
-    font-family: 'Mulish';
-    font-weight: normal;
-    font-style: normal;
-}
+.regular-font {font-family: 'Mulish';font-weight: normal;font-style: normal;}
 nav {
     position: fixed;
     top: 0;
@@ -323,17 +302,9 @@ nav.open-nav {
     box-sizing: border-box; /*ensure this doesnt flow out*/
     overflow-y: scroll;
 }
-.nav-content {
-    display: block;
-}
-nav ul {
-    padding: 2rem 1.5rem 2rem;
-}
-nav ul li {
-    display: block;
-    list-style: none;
-    margin: 50px 0 20px;
-}
+.nav-content {display: block;}
+nav ul {padding: 2rem 1.5rem 2rem;}
+nav ul li {display: block; list-style: none; margin: 50px 0 20px;}
 nav ul li button {
     font-family: 'Mulish';
     font-weight: bold;
@@ -348,9 +319,7 @@ nav ul li button {
     opacity: 0.7;
     transition: opacity .2s ease-out;
 }
-nav ul li button:hover {
-    opacity: 1;
-}
+nav ul li button:hover {opacity: 1;}
 nav article {
     display: flex;
     flex-direction: column;
@@ -375,9 +344,7 @@ nav article img {
     border: 5px solid rgb(136, 136, 223);
     border-radius: 5px;
 }
-.page {
-    color: white;
-}
+.page {color: white;}
 .black-bg {
     background-color: black;
     width: 100%;
@@ -395,14 +362,8 @@ nav article img {
     height: auto;
     width: 100%;
 }
-#topic1 section {
-    position: relative;
-    z-index: 10;
-}
-h2 {
-    font-family: 'Mulish';
-    font-weight: bold;
-}
+#topic1 section {position: relative;z-index: 10;}
+h2 {font-family: 'Mulish';font-weight: bold;}
 .black-bg > h2, .black-bg > h3 {
     position: absolute;
     top: 60%;
@@ -437,17 +398,13 @@ h4 {
     color: rgb(255, 166, 196);
     font-size: 1.1rem;
 }
-p {
-    font-family: 'Mulish';
-    font-weight: normal;
-    margin-bottom: 10px;
-}
-article > a {
+p {font-family: 'Mulish'; font-weight: normal; margin-bottom: 10px;}
+article > a { 
     display: inline-block;
     text-decoration: none;
     color: rgb(85, 91, 97);
     font-family: 'Mulish';
-    font-weight: lighter;
+    font-weight: 300;
     font-style: italic;
     background-color: rgb(255, 166, 196);
     border-radius: 3px;
@@ -483,9 +440,7 @@ article > a {
     cursor: pointer;
     width: fit-content;
 }
-.tab-box button.active {
-    color: rgb(245, 189, 189);
-}
+.tab-box button.active {color: rgb(245, 189, 189);}
 .tab-line {
     position: absolute;
     bottom: 0;
@@ -496,27 +451,16 @@ article > a {
     border-radius: 10px;
     transition: all .2s ease-in-out;
 }
-.content-box {
-    padding: 20px;
-}
-.content-box article {
-    display: none;
-    animation: tab-content-move .3s ease;
-}
+.content-box {padding: 20px;}
+.content-box article {display: none; animation: tab-content-move .3s ease;}
 @keyframes tab-content-move {
     from {transform: translateX(30px); opacity: 0;}
     to {transform: translateX(0px); opacity: 1;}
 }
-.content-box article.active {
-    display: block;
-}
+.content-box article.active {display: block;}
 .underline-text {text-decoration: underline rgb(143, 203, 223) solid 2px;}
 a.underline-text {color: white;}
-.tooltip {
-    position: relative;
-    cursor: help;
-    display: inline-block; /* restrict hover area to text only */
-}
+.tooltip {position: relative; cursor: help; display: inline-block; /* restrict hover area to text only */}
 .tooltip-text {
     font-family: 'Mulish';
     font-weight: normal;
@@ -532,13 +476,8 @@ a.underline-text {color: white;}
     z-index: 15;
     width: 200px;
 }
-#cosmic-tabs .tooltip-text {
-    top: -640%;
-}
-#earth-tabs .tooltip-text {
-    top: -840%;
-    left: -25%;
-}
+#cosmic-tabs .tooltip-text {top: -640%;}
+#earth-tabs .tooltip-text {top: -840%; left: -25%;}
 .tooltip-text::before {
     content: "";
     position: absolute;
@@ -549,10 +488,7 @@ a.underline-text {color: white;}
     border-style: solid;
     border-color: rgb(43, 94, 145) transparent transparent transparent;
 }
-.tooltip.visible .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-}
+.tooltip.visible .tooltip-text {visibility: visible; opacity: 1;}
 #topic2-bg1 {
     background-image: url("./images/on-the-moon.jpg");
     filter:brightness(80%) contrast(120%);
@@ -573,9 +509,7 @@ a.underline-text {color: white;}
     justify-content: flex-end;
     padding: 0 2rem;
 }
-#topic2 article h3 {
-    margin-bottom: 2rem;
-}
+#topic2 article h3 {margin-bottom: 2rem;}
 #topic2 article p {margin-bottom: 1rem;}
 ul {
     font-family: 'Mulish';
@@ -609,11 +543,7 @@ ul {
         rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
         translateZ(clamp(300px, 45vw, 650px));
 }
-.banner .slider .planet img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /*avoid distortion of image*/
-}
+.banner .slider .planet img {width: 100%; height: 100%;object-fit: cover; /*avoid distortion of image*/}
 #planet-info {
     position: fixed; /*float above content*/
     width: 100%;
@@ -621,11 +551,8 @@ ul {
     z-index: 1;
     margin-top: 2rem;
     display: none;
-    pointer-events: auto;
 }
-.planet-name {
-    font-size: 3rem;
-}
+.planet-name {font-size: 3rem;}
 .planet .hoverpoint {
     position: absolute;
     width: 15px;
@@ -694,22 +621,10 @@ ul {
     flex-flow: row wrap;
     justify-content: center;
 }
-.factors-container article {
-    margin-top: 2.75rem;
-    margin-bottom: 2.75rem;
-    width: 100%;
-}
-.factors-container article h3 {
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-.factors-container article:first-child {
-    margin-top: 1rem;
-}
-.factor {
-    position: relative;
-    padding: 0 2rem;
-}
+.factors-container article {margin-top: 2.75rem; margin-bottom: 2.75rem; width: 100%;}
+.factors-container article h3 {margin-left: 2rem; margin-right: 2rem;}
+.factors-container article:first-child {margin-top: 1rem;}
+.factor {position: relative; padding: 0 2rem;}
 .iframe-container, .factor img {
     width: 100%;
     position: relative;
@@ -719,10 +634,7 @@ ul {
     margin-bottom: 2rem;
 }
 .iframe-container {aspect-ratio: 16 / 9;}
-.iframe-container iframe {
-    width: 100%;
-    height: 100%;
-}
+.iframe-container iframe {width: 100%; height: 100%;}
 .bold {font-weight: bold;}
 .factor p {padding: 0 30px; margin-bottom: 1.2rem;}
 .app {
@@ -741,16 +653,12 @@ ul {
     color: black;
     padding: 2rem;
 }
-.quiz h5 {
-    font-size: 1.2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid rgb(90, 157, 170);
-}
+.quiz h5 {font-size: 1.2rem; padding-bottom: 1rem; border-bottom: 2px solid rgb(90, 157, 170);}
 .btn {
     background-color: rgb(174, 208, 215);
     color: black;
     font-family: 'Mulish';
-    font-weight: lighter;
+    font-weight: 300;
     font-size: 1rem;
     width: 100%;
     border: 1px solid black;
@@ -762,15 +670,12 @@ ul {
     transition: all 0.3s
 }
 /* allow btn hover if it's not disabled*/
-.btn:hover:not([disabled]) {
-    background: black;
-    color: rgb(174, 208, 215);
-}
+.btn:hover:not([disabled]) {background: black; color: rgb(174, 208, 215);}
 #next-btn, #close-popup {
     background-color: rgb(206, 173, 173);
     color: black;
     font-family: 'Mulish';
-    font-weight: lighter;
+    font-weight: 300;
     width: 40%;
     border: 0;
     padding: 10px;
@@ -779,37 +684,24 @@ ul {
     cursor: pointer;
     display: none;
 }
-.correct {
-    background-color: #beffda;
-}
-.incorrect {
-    background-color: #ffb0b0;
-}
-#user-form {
-    display: none;
-}
+.correct {background-color: #beffda;}
+.incorrect {background-color: #ffb0b0;}
+#user-form {display: none;}
 #user-form .input-section {
     font-family: 'Mulish';
     font-weight: normal;
     font-style: italic;
     margin: 1.5rem;
 }
-.game > h3 {
-    margin: 10rem 1rem 1rem 1rem;
-}
+.game > h3 {margin: 10rem 1rem 1rem 1rem;}
 .solar-system {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-.solar-system > img {
-    transform: rotate(90deg);
-    width: fit-content;
-}
-#zones {
-    width: 100%;
-}
+.solar-system > img {transform: rotate(90deg); width: fit-content;}
+#zones {width: 100%;}
 .drop-zone {
     width: 100%;
     min-height: 120px;
@@ -818,7 +710,7 @@ ul {
     align-items: center;
     justify-content: center;
     font-family: 'Mulish';
-    font-weight: lighter;
+    font-weight: 300;
     font-size: 0.9rem;
     padding: 20px;
     flex-wrap: wrap;
@@ -831,23 +723,11 @@ ul {
     flex-shrink: 1; /* allow shrinking */
     object-fit: contain;
 }
-.hot {
-    background-color: rgba(251, 80, 80, 0.4);
-}
-.habitable {
-    background-color: rgba(53, 255, 60, 0.4);
-}
-.cold {
-    background-color: rgba(40, 133, 255, 0.4);
-}
-#game-planets {
-    border: 2px dotted rgb(159, 159, 212);
-}
-.game-planet {
-    margin: 0.5rem;
-    display: inline-block;
-    cursor: grab;
-}
+.hot {background-color: rgba(251, 80, 80, 0.4);}
+.habitable {background-color: rgba(53, 255, 60, 0.4);}
+.cold {background-color: rgba(40, 133, 255, 0.4);}
+#game-planets {border: 2px dotted rgb(159, 159, 212);}
+.game-planet {margin: 0.5rem; display: inline-block; cursor: grab;}
 .game-planet.mercury {
     background: url('images/spritesheet.png') no-repeat -60px -61px;
 	width: 56px;
@@ -888,9 +768,7 @@ ul {
 	width: 56px;
 	height: 56px;
 }
-.game > p {
-    padding: 20px;
-}
+.game > p {padding: 20px;}
 .game-planet-wrapper {
     margin: 20px;
     display: inline-block;
@@ -898,13 +776,8 @@ ul {
     opacity: 0.8;
     transition: all 1s ease;
 }
-.game-planet-wrapper:hover {
-    opacity: 1;
-}
-.game-planet-wrapper p {
-    margin: 0; 
-    font-size: small; 
-}
+.game-planet-wrapper:hover {opacity: 1;}
+.game-planet-wrapper p {margin: 0; font-size: small; }
 .popup {
     background: rgba(0, 0, 0, 0.3);
     position: fixed;
@@ -919,10 +792,7 @@ ul {
     align-items: center;
     justify-content: center;
 }
-.popup.open {
-    opacity: 1;
-    z-index: 999;
-}
+.popup.open {opacity: 1; z-index: 999;}
 .popup-inner {
     background-color: rgb(63, 59, 59);
     border-radius: 5px;
@@ -932,10 +802,7 @@ ul {
     width: 400px;
     margin: 1rem;
 }
-.popup-inner p {
-    font-family: 'Mulish';
-    font-size: large;
-}
+.popup-inner p {font-family: 'Mulish'; font-size: large;}
 #close-popup {display: block;}
 footer {
     background-color: #333;
@@ -961,15 +828,8 @@ footer {
         z-index: 20;
         pointer-events: none; /*allow for cursor interactions*/
     }
-    .site-wrapper {
-        padding-left: 5vw;
-        box-sizing: border-box;
-    }
-    main {
-        width: 100%;
-        box-sizing: border-box;
-        display: block;
-    }
+    .site-wrapper {padding-left: 5vw;box-sizing: border-box;}
+    main {width: 100%;box-sizing: border-box;display: block;}
     h1 {
         position: absolute;
         font-size: 2.3vw;
@@ -977,23 +837,11 @@ footer {
         left: 40%;
         text-align: start;
     }
-    .planet-wrapper {
-        width: 35vw;
-        left: 35%;
-    }
-    .nav-main {
-        padding-top: 130px;
-    }
-    .nav-content {
-        display: flex;
-        align-items: center;
-    }
-    nav ul {
-        width: 40%;
-    }
-    nav ul li button {
-        font-size: clamp(1.5vw, 2vw, 2.5vw);
-    }
+    .planet-wrapper {width: 35vw;left: 35%;}
+    .nav-main {padding-top: 130px;}
+    .nav-content {display: flex;align-items: center;}
+    nav ul {width: 40%;}
+    nav ul li button {font-size: clamp(1.5vw, 2vw, 2.5vw);}
     nav article {
         width: 60%;
         margin-bottom: 0;
@@ -1021,6 +869,7 @@ footer {
         background-color: rgb(19, 18, 18);
         position: fixed;
         justify-content: space-between;
+        transition: width 2s ease-in-out;
     }
     nav {
         transform-origin: left;
