@@ -145,7 +145,7 @@ h1 {
 }
 @keyframes slideInRight {
     0% {
-        transform: translateX(200%) scale(0.7);
+        transform: translateX(100%) scale(0.7);
         opacity: 0;
     }
     90% {opacity: 1;}
@@ -976,4 +976,12 @@ footer {
         height: 100%;
     }
     #qrCodeImg {display: block;}
+    @keyframes slideInRight {
+    0% {
+        transform: translateX(200%) scale(0.7);
+        opacity: 0;
+    }
+    90% {opacity: 1;}
+    100% {transform: translateX(0) scale(1);}
+    }
 }
