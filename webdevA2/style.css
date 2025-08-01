@@ -937,6 +937,15 @@ ul {
     font-size: large;
 }
 #close-popup {display: block;}
+footer {
+    background-color: #333;
+    height: 250px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+#qrCodeImg {display: none; height: 100%;}
+#game-area {height: fit-content;}
 
 @media (min-width: 800px) {
     #mouse-glow {
@@ -1117,4 +1126,5 @@ ul {
         display: flex;
         height: 100%;
     }
+    #qrCodeImg {display: block;}
 }
