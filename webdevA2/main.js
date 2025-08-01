@@ -1015,9 +1015,10 @@ function bindDragAndTouchEvents() {
     // mobile/tablet
     planetIcons.forEach(icon => {
         icon.addEventListener("touchstart", (e) => {
+            e.preventDefault(); // prevent scrolling
             // keep track of current draggedPlanet
             draggedPlanet = icon;
-        });
+        }, { passive: false }); // <- required for preventDefault to work
 
         icon.addEventListener("touchend", (e) => {
             const touch = e.changedTouches[0];
