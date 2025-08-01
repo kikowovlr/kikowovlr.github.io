@@ -840,7 +840,7 @@ function askForInput() {
 }
 
 function showScore() {
-    const name = document.querySelector("username");
+    const name = document.querySelector("#username").value;
     alert(`Thanks ${name}! Your feedback was submitted.`);
     userForm.style.display = "none";
     qnElement.style.display = "block";
